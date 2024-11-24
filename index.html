@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прототип сервиса обработки заявок</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Шапка с фоновым изображением */
+    header {
+      background: url('background.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 40px 20px; /* Увеличил отступы */
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem; /* Увеличен размер шрифта заголовка */
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Тень для текста */
+    }
+
+    header p {
+      font-size: 1.5rem; /* Увеличен размер шрифта подзаголовка */
+      margin-top: 10px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #4CAF50;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .feature {
+      flex: 1 1 calc(33% - 20px);
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature h3 {
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Прототип сервиса обработки заявок</h1>
+    <p>Эффективная система управления промо-заявками</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>О проекте</h2>
+      <p>Наш сервис предназначен для автоматизации процесса обработки заявок на проведение промо-акций. Это решение позволит снизить ручной труд, повысить точность обработки данных и улучшить взаимодействие между участниками процесса.</p>
+    </section>
+
+    <section>
+      <h2>Ключевые возможности</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Удобный интерфейс</h3>
+          <p>Простой и понятный интерфейс для работы с заявками.</p>
+        </div>
+        <div class="feature">
+          <h3>Автоматизация</h3>
+          <p>Сокращение времени на обработку заявок за счет автоматических процессов.</p>
+        </div>
+        <div class="feature">
+          <h3>Аналитика</h3>
+          <p>Инструменты для анализа данных и принятия решений.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Демонстрация прототипа</h2>
+      <p>Нажмите кнопку ниже, чтобы увидеть демонстрацию работы сервиса:</p>
+      <button onclick="showDemo()">Посмотреть демо</button>
+    </section>
+
+    <section id="demo" style="display:none;">
+      <h2>Демо работы сервиса</h2>
+      <p>Сервис обрабатывает заявку и выводит результат:</p>
+      <pre id="output">Здесь будет результат...</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Прототип сервиса обработки заявок. Все права защищены.</p>
+  </footer>
+
+  <script>
+    function showDemo() {
+      const demoSection = document.getElementById('demo');
+      const output = document.getElementById('output');
+      
+      demoSection.style.display = 'block';
+      
+      // Простая симуляция обработки заявки
+      setTimeout(() => {
+        output.textContent = "Заявка успешно обработана! Статус: Одобрено.";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
