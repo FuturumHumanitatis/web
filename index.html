@@ -122,7 +122,8 @@
     <section>
       <h2>Демонстрация прототипа</h2>
       <p>Нажмите кнопку ниже, чтобы увидеть демонстрацию работы сервиса:</p>
-      <button onclick="showDemo()">Посмотреть демо</button>
+      <a href='form.html'>Отправить заявку</a>
+      <button onclick="showDemo()">Проверить корректность</button>
     </section>
 
     <section id="demo" style="display:none;">
@@ -146,7 +147,7 @@
       // Простая симуляция обработки заявки
       setTimeout(() => {
         output.textContent = "Заявка успешно обработана! Статус: Одобрено.";
-      }, 2000);
+      }, 4000);
     }
   </script>
 </body>
