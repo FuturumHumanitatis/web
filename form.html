@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма запроса</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .response {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      border-left: 5px solid #4CAF50;
+      font-size: 1rem;
+    }
+
+    .response p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Форма запроса</h1>
+  
+  <!-- Тип промо -->
+  <div class="form-group">
+    <label for="promoType">Тип промо:</label>
+    <select id="promoType">
+      <option value="">Выберите тип...</option>
+      <option value="скидка">Скидка</option>
+      <option value="подарок">Подарок</option>
+      <option value="акция">Акция</option>
+    </select>
+  </div>
+
+  <!-- Период участия -->
+  <div class="form-group">
+    <label for="participationPeriod">Период участия:</label>
+    <input type="text" id="participationPeriod" placeholder="Например, '01.01.2024 - 31.01.2024'">
+  </div>
+
+  <!-- Номер календарной недели/месяца -->
+  <div class="form-group">
+    <label for="calendarPeriod">Номер календарной недели/месяца:</label>
+    <input type="text" id="calendarPeriod" placeholder="Например, '3-я неделя' или 'Январь'">
+  </div>
+
+  <!-- Код товара -->
+  <div class="form-group">
+    <label for="productCode">Код товара:</label>
+    <input type="text" id="productCode" placeholder="Введите код товара">
+  </div>
+
+  <!-- Скидка от поставщика -->
+  <div class="form-group">
+    <label for="supplierDiscount">Скидка от поставщика (%):</label>
+    <input type="number" id="supplierDiscount" placeholder="Например, '10'" min="0" max="100" step="1">
+  </div>
+
+  <!-- География участия -->
+  <div class="form-group">
+    <label for="geography">География участия:</label>
+    <textarea id="geography" rows="3" placeholder="Например, 'Москва, Санкт-Петербург'"></textarea>
+  </div>
+
+  <!-- Примечания менеджеру -->
+  <div class="form-group">
+    <label for="notes">Примечания менеджеру:</label>
+    <textarea id="notes" rows="4" placeholder="Введите дополнительные комментарии"></textarea>
+  </div>
+
+  <!-- Кнопка отправки -->
+  <button id="sendRequestBtn">Отправить запрос</button>
+  
+  <!-- Блок с ответом -->
+  <div class="response" id="responseContainer" style="display: none;">
+    <p id="responseText"></p>
+  </div>
+</div>
+
+<script>
+  // Найти элементы на странице
+  const sendRequestBtn = document.getElementById('sendRequestBtn');
+  const responseContainer = document.getElementById('responseContainer');
+  const responseText = document.getElementById('responseText');
